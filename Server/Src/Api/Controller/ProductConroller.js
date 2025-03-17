@@ -24,10 +24,10 @@ exports.GetProduct = async (req,res) => {
             data = await product.find(query).skip(skip).limit(limit);
         }
 
-        res.send(data);
+        res.status(200).send(data);
     }
     catch{
-        console.log("cant find data")
+        res.status(500).send("Can't find data");
     }
 
 }
